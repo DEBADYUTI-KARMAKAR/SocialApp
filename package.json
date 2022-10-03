@@ -1,0 +1,19 @@
+{
+  "name": "socialapp",
+  "version": "1.0.0",
+  "description": "Social Media Tracker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "express",
+    "api"
+  ],
+  "author": "debadyuti",
+  "license": "ISC",
+  "dependencies": {
+    "date-format": "^4.0.14",
+    "express": "^4.18.1"
+  }
+}
