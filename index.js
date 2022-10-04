@@ -3,10 +3,16 @@ const format = require('date-format');
 const app = express();
 const PORT = 3000 || process.env.PORT;
 
+// swagger docs
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./swagger.yaml');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 app.get('/',(req,res)=>{
     res.status(200).send('<h1>Hello World</h1>');
 })
-
 
 app.get('/api/v1/instagram',(req,res)=>{
     const instaSocial = {
@@ -18,6 +24,7 @@ app.get('/api/v1/instagram',(req,res)=>{
 
     res.status(200).json(instaSocial)
 })
+
 app.get('/api/v1/facebook',(req,res)=>{
     const facebookSocial = {
         username: 'debadyutitech',
@@ -28,6 +35,7 @@ app.get('/api/v1/facebook',(req,res)=>{
 
     res.status(200).json(facebookSocial)
 })
+
 app.get('/api/v1/linkedin',(req,res)=>{
     const linkedinSocial = {
         username: 'debadyutitech',
@@ -38,6 +46,7 @@ app.get('/api/v1/linkedin',(req,res)=>{
 
     res.status(200).json(linkedinSocial)
 })
+
 app.get('/api/v1/:token',(req,res)=>{
     res.status(200).json({
         token: req.params.token,
@@ -45,5 +54,6 @@ app.get('/api/v1/:token',(req,res)=>{
     });
 }
 )
+ 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 

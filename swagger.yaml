@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: Social APP
+  description: Social Status
+  version: 1.0.1
+servers:
+  - url: http://localhost:3000/api/v1
+    description: local host version of our app
+  - url: https://localhost:3000/api/v1
+    description: this is just a dummy api url it dosen't work
+
